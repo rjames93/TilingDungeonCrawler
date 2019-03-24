@@ -22,11 +22,20 @@ class Level:
 
         self.generateRooms(n_rooms)
 
-    def minimalOverlap(tlRoom,roomsize):
+    def minimalOverlap(self,tlRoom,roomsize):
         # This function looks at the existing tilemap and the proposed new room and says true if far overlap is small and false if not
 
 
         return True
+
+    def findFreeSpace(self):
+        tarx = random.randint(0,self.xsize)
+        tary = random.randint(0,self.ysize)
+
+        while ( self.tilemap[tarx][tary] != TileType.AIR ):
+            tarx = random.randint(0,self.xsize)
+            tary = random.randint(0,self.ysize)
+        return (tarx,tary)
 
     def generateRooms(self, n_rooms):
         # First thing we do. Generate the top left most corner coordinates
@@ -46,9 +55,8 @@ class Level:
         # Find out how many TileType.AIR there are in the array
         condition = self.tilemap == TileType.AIR
         airrooms = np.extract(condition, self.tilemap)
-        print(airrooms)
-
-
+        nfreetiles = len(airrooms)
+        
         # Saving an output of the progress so far
         np.savetxt('Level'+str(self.levelID)+'.out',self.tilemap,fmt='%d')
 
