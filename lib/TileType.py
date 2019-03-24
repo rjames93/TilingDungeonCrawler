@@ -12,7 +12,7 @@ def TileMap(imageDirectory):
     for f in files:
         enumNumber = int(f.split('-')[0])
         filename = (tilePrefix+f)
-        tileMap[TileType(enumNumber)] = pygame.image.load(filename)
+        tileMap[TileType(enumNumber)] = pygame.transform.smoothscale(pygame.image.load(filename),(32,32))
     return tileMap
 
 class TileType(Enum):

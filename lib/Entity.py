@@ -20,7 +20,7 @@ class animateEntity(Entity):
     def __init__(self, initx, inity, initLevel, name):
         Entity.__init__(self, initx, inity, initLevel, name)
 
-    def render(self, level, entities, imgdata):
+    def render(self, level, entities, surface, imgdata):
         raise NotImplementedError() # Basically if this happens then the child class doesn't have their own render method.
 
 # Pretty Obvious right? player, nature and ai
@@ -28,9 +28,15 @@ class playerEntity(animateEntity):
     def __init__(self, initx, inity, initLevel, name):
         animateEntity.__init__(self, initx, inity, initLevel, name)
 
-    def render(self, level, entities, imgdata):
+    def render(self, level, entities, surface, imgdata):
         # Need to get the Tile Image Data 
-        print()
+        centralTile = level.getTileType(self.position[0],self.position[1])
+        surfacewidth = surface.get_width()
+        surfaceheight = surface.get_height()
+        centralcoords = [surface.get_width()/2,surface.get_height()/2]
+
+        surface.blit(imgdata[centralTile],centralcoords)
+
 
 class natureEntity(animateEntity):
     def __init__(self, initx, inity, initLevel, name):

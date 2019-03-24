@@ -15,7 +15,7 @@ class GameEngine:
     def init(self):
         pygame.init()
         screen_width=700
-        screen_height=400
+        screen_height=700
         self.screen=pygame.display.set_mode([screen_width,screen_height])
 
     def setimgdir(self,directory):
@@ -35,7 +35,7 @@ class GameEngine:
 
     def addPlayerChar(self):
         (posx, posy, level) = self.findFreeSpace(0)
-        self.entities.append( playerEntity(0,0,level,"Player") )
+        self.entities.append( playerEntity(posx,posy,level,"Player") )
 
     def findFreeSpace(self,level=None):
         if level == None:
@@ -67,9 +67,9 @@ class GameEngine:
             
             # The entity of focus is the one whose perspective we render from. :)
             entityInFocus = 0
-            currentLevel = self.entities[entityInFocus].getLevel()
+            currentLevel = self.levels[self.entities[entityInFocus].getLevel()]
             entitiesOnLevel = [ ent for ent in self.entities if ent.getLevel() == self.entities[entityInFocus].getLevel() ]
-            self.entities[ entityInFocus ].render( currentLevel , entitiesOnLevel, self.tileMap ) # Give the Current Level and the Entities that are on the Same Level to the entityInFocus
+            self.entities[ entityInFocus ].render( currentLevel , entitiesOnLevel, self.screen, self.tileMap ) # Give the Current Level and the Entities that are on the Same Level to the entityInFocus
     
             # Update all of the things
             

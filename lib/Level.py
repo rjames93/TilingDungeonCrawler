@@ -22,10 +22,11 @@ class Level:
 
         self.generateRooms(n_rooms)
 
+    def getTileType(self,x,y):
+        return self.tilemap[x][y]
+
     def minimalOverlap(self,tlRoom,roomsize):
         # This function looks at the existing tilemap and the proposed new room and says true if far overlap is small and false if not
-
-
         return True
 
     def findFreeSpace(self):
