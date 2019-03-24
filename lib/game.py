@@ -68,14 +68,16 @@ class GameEngine:
             # The entity of focus is the one whose perspective we render from. :)
             entityInFocus = 0
             currentLevel = self.levels[self.entities[entityInFocus].getLevel()]
+            
+            if ev.type == pygame.KEYDOWN:
+                self.entities[ entityInFocus ].updatePosition(ev,currentLevel)
+            
+            
+            
+            # Render from the Perspective            
             entitiesOnLevel = [ ent for ent in self.entities if ent.getLevel() == self.entities[entityInFocus].getLevel() ]
             self.entities[ entityInFocus ].render( currentLevel , entitiesOnLevel, self.screen, self.tileMap ) # Give the Current Level and the Entities that are on the Same Level to the entityInFocus
-    
-            # Update all of the things
-            
-
-            # Draw Everything
-
+                
             # Flip the Screen
             pygame.display.flip()
 

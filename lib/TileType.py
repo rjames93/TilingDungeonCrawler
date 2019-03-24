@@ -21,3 +21,5 @@ class TileType(Enum):
 
     BRICK_WALL_HORIZONTAL = 100
     BRICK_WALL_VERTICAL = 101
+
+    PLAYER = 999

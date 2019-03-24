@@ -1,5 +1,7 @@
 # TilingDungeonCrawler
 
+# Basic AF Screenshot
+![Screenshot of Tiles](img/screenshot.png?raw=true)
 
 # Objectives
 - Simple Tiled Dungeon Crawler
