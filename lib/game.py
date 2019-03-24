@@ -8,11 +8,15 @@ class GameEngine:
     levels = [] # A list of the levels in the game
     entities = [] # A list of the entities in the game
 
+    def __init__(self):
+        self.init()
+
+
     def init(self):
         pygame.init()
         screen_width=700
         screen_height=400
-        screen=pygame.display.set_mode([screen_width,screen_height])
+        self.screen=pygame.display.set_mode([screen_width,screen_height])
 
     def setNumberOfLevels(self, nlevels):
         self.nlevels = nlevels
@@ -48,3 +52,20 @@ class GameEngine:
         print("Starting Game Loop")
         self.addPlayerChar()
         self.populateEntities()
+
+        while True:
+            ev = pygame.event.poll() # Look for events
+            if ev.type == pygame.QUIT:
+                break
+
+            # Write backgroundColor
+            self.screen.fill((0,200,255))
+
+            # Update all of the things
+
+            # Draw Everything
+
+            # Flip the Screen
+            pygame.display.flip()
+
+
