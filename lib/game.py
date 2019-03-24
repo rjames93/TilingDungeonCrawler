@@ -30,8 +30,8 @@ class GameEngine:
         pygame.quit()
 
     def addPlayerChar(self):
-        (posx, posy) = self.findFreeSpace(0)
-        self.entities.append( playerEntity(0,0,"Player") )
+        (posx, posy, level) = self.findFreeSpace(0)
+        self.entities.append( playerEntity(0,0,level,"Player") )
 
     def findFreeSpace(self,level=None):
         if level == None:
@@ -40,13 +40,13 @@ class GameEngine:
         currentLevel = self.levels[level]
         (posx,posy) = currentLevel.findFreeSpace()
 
-        return (posx,posy)
+        return (posx,posy,level)
 
     def populateEntities(self):
         # Select a number of entities
         nNonPCEntities = random.randint(1,10)
-        (posx, posy) = self.findFreeSpace()
-        self.entities.append( aiEntity(posx,posy,"AI") )
+        (posx, posy, level) = self.findFreeSpace()
+        self.entities.append( aiEntity(posx,posy, level,"AI") )
 
     def play(self):
         print("Starting Game Loop")
@@ -59,9 +59,16 @@ class GameEngine:
                 break
 
             # Write backgroundColor
-            self.screen.fill((0,200,255))
-
+            self.screen.fill((0,0,0))
+            
+            # The entity of focus is the one whose perspective we render from. :)
+            entityInFocus = 0
+            currentLevel = self.entities[entityInFocus].getLevel()
+            entitiesOnLevel = [ ent for ent in self.entities if ent.getLevel() == self.entities[entityInFocus].getLevel() ]
+            self.entities[ entityInFocus ].render( currentLevel , entitiesOnLevel ) # Give the Current Level and the Entities that are on the Same Level to the entityInFocus
+    
             # Update all of the things
+            
 
             # Draw Everything
 

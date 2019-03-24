@@ -61,9 +61,6 @@ class Level:
         np.savetxt('Level'+str(self.levelID)+'.out',self.tilemap,fmt='%d')
 
 
-
-
-
     def __init__(self,levelID,xsize=None,ysize=None):
         print("Generating Level "+str(levelID))
         self.levelID = levelID
