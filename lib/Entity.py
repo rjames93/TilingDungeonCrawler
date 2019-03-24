@@ -33,8 +33,10 @@ class playerEntity(animateEntity):
         centralTile = level.getTileType(self.position[0],self.position[1])
         surfacewidth = surface.get_width()
         surfaceheight = surface.get_height()
-        centralcoords = [surface.get_width()/2,surface.get_height()/2]
+        screencentralcoords = [surface.get_width()/2,surface.get_height()/2]
 
+        # Lets do some 'ray projection' for vision
+        centralcoords= ( screencentralcoords[0] - imgdata[centralTile].get_rect().centerx, screencentralcoords[1] - imgdata[centralTile].get_rect().centery )
         surface.blit(imgdata[centralTile],centralcoords)
 
 
