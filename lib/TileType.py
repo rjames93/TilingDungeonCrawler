@@ -16,7 +16,8 @@ def TileMap(imageDirectory):
     return tileMap
 
 class TileType(Enum):
-    VOID = 0
-    AIR = 1
-    BRICK_HORIZONTAL = 2
-    BRICK_VERTICAL = 3
+    VOID = 0 # Void is for the edges
+    AIR = 1 # Stone Tile Floor (basic floor
+
+    BRICK_WALL_HORIZONTAL = 100
+    BRICK_WALL_VERTICAL = 101
