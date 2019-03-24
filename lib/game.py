@@ -69,7 +69,7 @@ class GameEngine:
             entityInFocus = 0
             currentLevel = self.entities[entityInFocus].getLevel()
             entitiesOnLevel = [ ent for ent in self.entities if ent.getLevel() == self.entities[entityInFocus].getLevel() ]
-            self.entities[ entityInFocus ].render( currentLevel , entitiesOnLevel ) # Give the Current Level and the Entities that are on the Same Level to the entityInFocus
+            self.entities[ entityInFocus ].render( currentLevel , entitiesOnLevel, self.tileMap ) # Give the Current Level and the Entities that are on the Same Level to the entityInFocus
     
             # Update all of the things
             

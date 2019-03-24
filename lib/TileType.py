@@ -5,14 +5,14 @@ from os.path import isfile, join
 
 def TileMap(imageDirectory):
     tilePrefix = imageDirectory+'tiles/'
-    print(tilePrefix)
     tileMap = {}
 
-    files = [f for f in listdir(tilePrefix) if isfile(join(tilePrefix, f))]
-    print(files)
-    for Tile in TileType:
-            tileMap[Tile] = pygame.image.load("blank.png")
-
+    files = [f for f in listdir(tilePrefix) if isfile( tilePrefix + f)]
+    
+    for f in files:
+        enumNumber = int(f.split('-')[0])
+        filename = (tilePrefix+f)
+        tileMap[TileType(enumNumber)] = pygame.image.load(filename)
     return tileMap
 
 class TileType(Enum):
