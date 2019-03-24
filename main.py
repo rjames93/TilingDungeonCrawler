@@ -1,3 +1,13 @@
-import pygame
+#!./env/bin/python
 
-pygame.init()
+from lib.game import GameEngine
+
+
+game = GameEngine()
+
+game.setNumberOfLevels(1)
+
+game.generateLevels()
+
+
+game.finish()
