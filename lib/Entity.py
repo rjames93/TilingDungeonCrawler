@@ -1,4 +1,5 @@
 import uuid
+import thorpy
 
 class Entity:
     def __init__(self, initx, inity, initLevel, name):
@@ -28,7 +29,8 @@ class playerEntity(animateEntity):
         animateEntity.__init__(self, initx, inity, initLevel, name)
 
     def render(self, level, entities):
-        print("Hahaha")
+        # Need to get the Tile Image Data
+        print("Rendering")
 
 class natureEntity(animateEntity):
     def __init__(self, initx, inity, initLevel, name):

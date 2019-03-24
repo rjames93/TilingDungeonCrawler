@@ -2,6 +2,7 @@ import pygame
 import random
 from lib.Level import Level
 from lib.Entity import *
+from lib.TileType import TileMap
 
 class GameEngine:
     nlevels = 1
@@ -11,12 +12,15 @@ class GameEngine:
     def __init__(self):
         self.init()
 
-
     def init(self):
         pygame.init()
         screen_width=700
         screen_height=400
         self.screen=pygame.display.set_mode([screen_width,screen_height])
+
+    def setimgdir(self,directory):
+        self.imgdir = directory
+        self.tileMap = TileMap(self.imgdir)
 
     def setNumberOfLevels(self, nlevels):
         self.nlevels = nlevels
