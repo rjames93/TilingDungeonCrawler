@@ -4,9 +4,9 @@
 # Objectives
 - Simple Tiled Dungeon Crawler
 - AI 
- - Random
- - Reinforcement Learning
-  - Several Fitness Functions which should lead to agressive, passive, flightful etc. behaviours.
+	- Random
+	- Reinforcement Learning
+		- Several Fitness Functions which should lead to agressive, passive, flightful etc. behaviours.
 - Cross-platform GUI
 
 ## Requirements
