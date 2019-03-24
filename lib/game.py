@@ -7,6 +7,9 @@ class GameEngine:
 
     def init(self):
         pygame.init()
+        screen_width=700
+        screen_height=400
+        screen=pygame.display.set_mode([screen_width,screen_height])
 
     def setNumberOfLevels(self, nlevels):
         self.nlevels = nlevels
@@ -17,3 +20,7 @@ class GameEngine:
 
     def finish(self):
         print("Cleaning Up")
+        pygame.quit()
+
+    def play(self):
+        print("Starting Game Loop")
