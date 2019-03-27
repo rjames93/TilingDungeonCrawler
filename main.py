@@ -5,11 +5,14 @@ from lib.game import GameEngine
 
 game = GameEngine()
 game.setimgdir('./img/')
+game.setlvldir('./lvls/')
 
-game.setNumberOfLevels(1)
+# Set or Load Levels
+# game.setNumberOfLevels(1)
+# game.generateLevels()
 
+game.loadLevelsFromDir()
 
-game.generateLevels()
 
 game.play()
 

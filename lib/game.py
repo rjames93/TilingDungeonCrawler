@@ -3,6 +3,9 @@ import random
 from lib.Level import Level
 from lib.Entity import *
 from lib.TileType import TileMap
+from os import listdir
+from os.path import isfile, join
+
 
 class GameEngine:
     nlevels = 1
@@ -22,6 +25,18 @@ class GameEngine:
         self.imgdir = directory
         self.tileMap = TileMap(self.imgdir)
 
+    def setlvldir(self,directory):
+        self.lvldir = directory
+
+    def loadLevelsFromDir(self):
+        files = [f for f in listdir(self.lvldir) if isfile( self.lvldir + f )]
+        self.nlevels = len(files)
+        print(self.nlevels)
+        for i in range(self.nlevels):
+            tmp = Level(i) # This generates a random file anyway
+            tmp.loadTilemapFromFile(self.lvldir+files[i]) # Now we ignore it and just load from a file
+            self.levels.append(tmp)
+    
     def setNumberOfLevels(self, nlevels):
         self.nlevels = nlevels
 

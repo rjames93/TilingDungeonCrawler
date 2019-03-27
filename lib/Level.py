@@ -11,6 +11,12 @@ class Level:
        self.xsize = xsize
        self.ysize = ysize
 
+    def loadTilemapFromFile(self,filename):
+        print(filename)
+        self.tilemap = np.loadtxt(filename)
+        self.xsize = self.tilemap.shape[0]
+        self.ysize = self.tilemap.shape[1]
+
     def generateTilemap(self):
         print("Generating Tilemap")
         random.seed(self.levelID)
