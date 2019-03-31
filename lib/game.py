@@ -13,9 +13,9 @@ class GameEngine:
     entities = [] # A list of the entities in the game
 
     def __init__(self):
-        self.init()
+        self.runSetup()
 
-    def init(self):
+    def runSetup(self):
         pygame.init()
         screen_width=700
         screen_height=700
@@ -31,10 +31,8 @@ class GameEngine:
     def loadLevelsFromDir(self):
         files = [f for f in listdir(self.lvldir) if isfile( self.lvldir + f )]
         self.nlevels = len(files)
-        print(self.nlevels)
         for i in range(self.nlevels):
-            tmp = Level(i) # This generates a random file anyway
-            tmp.loadTilemapFromFile(self.lvldir+files[i]) # Now we ignore it and just load from a file
+            tmp = Level(files[i]) # This generates a random file anyway
             self.levels.append(tmp)
     
     def setNumberOfLevels(self, nlevels):
@@ -42,7 +40,7 @@ class GameEngine:
 
     def generateLevels(self):
         for i in range(self.nlevels):
-            self.levels.append( Level(i) )
+            self.levels.append( Level(100,100) )
 
     def finish(self):
         print("Cleaning Up")

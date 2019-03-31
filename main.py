@@ -11,9 +11,10 @@ game.setlvldir('./lvls/')
 # game.setNumberOfLevels(1)
 # game.generateLevels()
 
-game.loadLevelsFromDir()
+#game.loadLevelsFromDir()
 
+game.setNumberOfLevels(1)
+game.generateLevels()
 
-game.play()
 
 game.finish()
